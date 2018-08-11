@@ -14,8 +14,8 @@ zle -N self-insert url-quote-magic
 # powerlevel9k prompt theme
 DEFAULT_USER=$USER
 POWERLEVEL9K_MODE='nerdfont-complete'
-#POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
-#POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
+POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
 POWERLEVEL9K_DIR_PATH_SEPARATOR="%F{cyan}/%F{blue}"
 POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=''
 POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=''
@@ -29,8 +29,7 @@ POWERLEVEL9K_STATUS_OK=false
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator dir_joined
                                    dir_writable_joined)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time vcs
-                                    background_jobs_joined time_joined
-                                    user_joined os_icon_joined host_joined)
+                                    background_jobs_joined user_joined host_joined)
 POWERLEVEL9K_VCS_CLEAN_BACKGROUND="clear"
 POWERLEVEL9K_VCS_CLEAN_FOREGROUND="green"
 POWERLEVEL9K_VCS_MODIFIED_BACKGROUND="clear"
@@ -65,11 +64,12 @@ POWERLEVEL9K_USER_ROOT_BACKGROUND='clear'
 POWERLEVEL9K_USER_ROOT_FOREGROUND='red'
 POWERLEVEL9K_USER_ICON="\uf415" # 
 POWERLEVEL9K_ROOT_ICON="\u26a1" # ⚡
+POWERLEVEL9K_HOST_TEMPLATE=""
 POWERLEVEL9K_HOST_LOCAL_BACKGROUND='clear'
 POWERLEVEL9K_HOST_LOCAL_FOREGROUND='cyan'
 POWERLEVEL9K_HOST_REMOTE_BACKGROUND='clear'
 POWERLEVEL9K_HOST_REMOTE_FOREGROUND='magenta'
-POWERLEVEL9K_HOST_ICON="\uF109 " # 
+POWERLEVEL9K_HOST_ICON="" # 
 POWERLEVEL9K_SSH_ICON="\uF489 "  # 
 POWERLEVEL9K_OS_ICON_BACKGROUND="clear"
 POWERLEVEL9K_OS_ICON_FOREGROUND="grey"
