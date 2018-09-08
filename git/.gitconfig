@@ -108,6 +108,7 @@
 [core]
     autocrlf = input
     editor = code -w
+	  excludesfile = ~/.gitignore
 [advice]
   statusHints = false
 [diff]
@@ -133,7 +134,12 @@ protocol = https
 [user]
 	name = Jan Jungnickel
 	email = jan@jungnickel.com
+	signingkey = 2FB70C82C2633AFC
 [status]
 	submoduleSummary = true
 [pull]
 	rebase = false
+[commit]
+	gpgsign = true
+[diff "sopsdiffer"]
+	textconv = sops -d

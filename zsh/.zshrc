@@ -28,7 +28,7 @@ POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%F{blue}\u2570\uf460%f "
 POWERLEVEL9K_STATUS_OK=false
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator dir_joined
                                    dir_writable_joined)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time vcs
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time vcs kubecontext pyenv rbenv
                                     background_jobs_joined user_joined host_joined)
 POWERLEVEL9K_VCS_CLEAN_BACKGROUND="clear"
 POWERLEVEL9K_VCS_CLEAN_FOREGROUND="green"
@@ -73,6 +73,10 @@ POWERLEVEL9K_HOST_ICON="" # 
 POWERLEVEL9K_SSH_ICON="\uF489 "  # 
 POWERLEVEL9K_OS_ICON_BACKGROUND="clear"
 POWERLEVEL9K_OS_ICON_FOREGROUND="grey"
+POWERLEVEL9K_KUBECONTEXT_BACKGROUND="clear"
+POWERLEVEL9K_KUBECONTEXT_FOREGROUND="magenta"
+POWERLEVEL9K_PYENV_BACKGROUND="clear"
+POWERLEVEL9K_PYENV_FOREGROUND="blue"
 
 # zsh-syntax-highlighting
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
@@ -118,6 +122,8 @@ zplug 'plugins/httpie', from:oh-my-zsh, if:'which httpie'
 zplug 'plugins/nanoc', from:oh-my-zsh, if:'which nanoc'
 zplug 'plugins/nmap', from:oh-my-zsh, if:'which nmap'
 zplug 'plugins/tmux', from:oh-my-zsh, if:'which tmux'
+zplug 'plugins/pyenv', from:oh-my-zsh
+zplug 'plugins/rbenv', from:oh-my-zsh
 
 #zplug 'b4b4r07/enhancd', use:init.sh
 zplug 'b4b4r07/zsh-vimode-visual', defer:3
@@ -134,6 +140,9 @@ zplug 'zsh-users/zsh-autosuggestions'
 zplug 'zsh-users/zsh-completions', defer:2
 zplug 'zsh-users/zsh-history-substring-search'
 zplug 'zsh-users/zsh-syntax-highlighting', defer:2
+zplug 'Tarrasch/zsh-autoenv'
+zplug 'ahmetb/kubectl-aliases', as:plugin, use:'.kubectl_aliases', defer:3
+zplug 'caarlos0/jvm'
 
 if ! zplug check; then
   zplug install
@@ -198,7 +207,7 @@ WATCHFMT='%n %a %l from %m at %t.'
 watch=(notme)         # Report login/logout events for everybody except ourself.
 LOGCHECK=60           # Time (seconds) between checks for login/logout activity.
 REPORTTIME=5          # Display usage statistics for commands running > 5 sec.
-WORDCHARS="\'*?_-.[]~=/&;!#$%^(){}<>\'"
+WORDCHARS="\'*?_-.[]~&;!#$%^(){}<>\'"
 
 # History
 HISTFILE=~/.zsh_history
