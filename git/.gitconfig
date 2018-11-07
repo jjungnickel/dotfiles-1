@@ -107,7 +107,7 @@
   default = upstream
 [core]
     autocrlf = input
-    editor = code -w
+    editor = emacsclient
 	  excludesfile = ~/.gitignore
 [advice]
   statusHints = false

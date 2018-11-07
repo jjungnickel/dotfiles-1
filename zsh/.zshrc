@@ -64,13 +64,13 @@ POWERLEVEL9K_USER_ROOT_BACKGROUND='clear'
 POWERLEVEL9K_USER_ROOT_FOREGROUND='red'
 POWERLEVEL9K_USER_ICON="\uf415" # 
 POWERLEVEL9K_ROOT_ICON="\u26a1" # ⚡
-POWERLEVEL9K_HOST_TEMPLATE=""
+POWERLEVEL9K_HOST_TEMPLATE="%m"
 POWERLEVEL9K_HOST_LOCAL_BACKGROUND='clear'
 POWERLEVEL9K_HOST_LOCAL_FOREGROUND='cyan'
 POWERLEVEL9K_HOST_REMOTE_BACKGROUND='clear'
 POWERLEVEL9K_HOST_REMOTE_FOREGROUND='magenta'
-POWERLEVEL9K_HOST_ICON="" # 
-POWERLEVEL9K_SSH_ICON="\uF489 "  # 
+POWERLEVEL9K_HOST_ICON="\uF109" # 
+POWERLEVEL9K_SSH_ICON="\uF489"  # 
 POWERLEVEL9K_OS_ICON_BACKGROUND="clear"
 POWERLEVEL9K_OS_ICON_FOREGROUND="grey"
 POWERLEVEL9K_KUBECONTEXT_BACKGROUND="clear"
@@ -93,6 +93,8 @@ ZSH_HIGHLIGHT_STYLES[bracket-level-1]='fg=cyan,bold'
 ZSH_HIGHLIGHT_STYLES[bracket-level-2]='fg=green,bold'
 ZSH_HIGHLIGHT_STYLES[bracket-level-3]='fg=magenta,bold'
 ZSH_HIGHLIGHT_STYLES[bracket-level-4]='fg=yellow,bold'
+
+if which nodenv > /dev/null; then eval "$(nodenv init -)"; fi
 
 if [[ ! -d "${ZPLUG_HOME}" ]]; then
   if [[ ! -d ~/.zplug ]]; then
@@ -432,3 +434,7 @@ unfunction setup_agents
 if [[ -f ~/.zshrc.local ]]; then
   source ~/.zshrc.local
 fi
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/jan.jungnickel/.sdkman"
+[[ -s "/Users/jan.jungnickel/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/jan.jungnickel/.sdkman/bin/sdkman-init.sh"
