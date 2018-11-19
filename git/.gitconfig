@@ -106,9 +106,11 @@
   # the usual default is to push all branches
   default = upstream
 [core]
-    autocrlf = input
-    editor = emacsclient
-	  excludesfile = ~/.gitignore
+  autocrlf = input
+	editor = emacsclient -a emacs
+	excludesfile = ~/.gitignore
+	quotepath = false
+	safecrlf = warn
 [advice]
   statusHints = false
 [diff]
@@ -141,5 +143,7 @@ protocol = https
 	rebase = false
 [commit]
 	gpgsign = true
+	# template = ~/.git-commit-template
+
 [diff "sopsdiffer"]
 	textconv = sops -d

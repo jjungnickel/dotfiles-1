@@ -132,6 +132,7 @@ brew "urlview"
 brew "w3m"
 #brew "wget"
 #brew "youtube-dl"
+brew "yq"
 brew "zplug", args: ["HEAD"]
 brew "zsh"
 
@@ -140,3 +141,4 @@ brew "zsh"
 mas "Clockodo", id: 991892390
 mas "Reeder", id: 880001334
 mas "Agenda", id: 1287445660
+mas "OmniFocus", id: 1346203938

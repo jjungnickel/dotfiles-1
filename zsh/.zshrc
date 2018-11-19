@@ -133,6 +133,7 @@ zplug 'b4b4r07/zsh-vimode-visual', defer:3
 # ofr now. See https://github.com/bhilburn/powerlevel9k/pull/703 for details.
 #zplug 'bhilburn/powerlevel9k', use:powerlevel9k.zsh-theme, at:next
 zplug 'bhilburn/powerlevel9k', use:powerlevel9k.zsh-theme
+#zplug 'denysdovhan/spaceship-prompt', use:spaceship.zsh, from:github, as:theme
 zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:"fzf", frozen:1
 zplug "junegunn/fzf", use:"shell/key-bindings.zsh"
 zplug 'knu/zsh-manydots-magic', use:manydots-magic, defer:3
