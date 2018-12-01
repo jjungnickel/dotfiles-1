@@ -94,8 +94,6 @@ ZSH_HIGHLIGHT_STYLES[bracket-level-2]='fg=green,bold'
 ZSH_HIGHLIGHT_STYLES[bracket-level-3]='fg=magenta,bold'
 ZSH_HIGHLIGHT_STYLES[bracket-level-4]='fg=yellow,bold'
 
-if which nodenv > /dev/null; then eval "$(nodenv init -)"; fi
-
 if [[ ! -d "${ZPLUG_HOME}" ]]; then
   if [[ ! -d ~/.zplug ]]; then
     git clone https://github.com/zplug/zplug ~/.zplug
@@ -114,24 +112,24 @@ if [[ -d "${ZPLUG_HOME}" ]]; then
   source "${ZPLUG_HOME}/init.zsh"
 fi
 
-zplug 'plugins/bundler', from:oh-my-zsh, if:'which bundle'
 zplug 'plugins/colored-man-pages', from:oh-my-zsh
 zplug 'plugins/extract', from:oh-my-zsh
 zplug 'plugins/fancy-ctrl-z', from:oh-my-zsh
 zplug 'plugins/git', from:oh-my-zsh, if:'which git'
-#zplug 'plugins/gpg-agent', from:oh-my-zsh, if:'which gpg-agent'
-zplug 'plugins/httpie', from:oh-my-zsh, if:'which httpie'
-zplug 'plugins/nanoc', from:oh-my-zsh, if:'which nanoc'
-zplug 'plugins/nmap', from:oh-my-zsh, if:'which nmap'
 zplug 'plugins/tmux', from:oh-my-zsh, if:'which tmux'
-zplug 'plugins/pyenv', from:oh-my-zsh
-zplug 'plugins/rbenv', from:oh-my-zsh
 
-#zplug 'b4b4r07/enhancd', use:init.sh
-zplug 'b4b4r07/zsh-vimode-visual', defer:3
+# Using pyenv/rbenv plugins significantly increases shell startup time,
+# so we just call `*env init` for now
+# zplug 'plugins/pyenv', from:oh-my-zsh
+# zplug 'plugins/rbenv', from:oh-my-zsh
+if which nodenv > /dev/null; then eval "$(nodenv init -)"; fi
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# zplug 'b4b4r07/zsh-vimode-visual', defer:3
 # Using branch 'next' introduces a color regression, so we fall back to master
 # ofr now. See https://github.com/bhilburn/powerlevel9k/pull/703 for details.
-#zplug 'bhilburn/powerlevel9k', use:powerlevel9k.zsh-theme, at:next
+# zplug 'bhilburn/powerlevel9k', use:powerlevel9k.zsh-theme, at:next
 zplug 'bhilburn/powerlevel9k', use:powerlevel9k.zsh-theme
 #zplug 'denysdovhan/spaceship-prompt', use:spaceship.zsh, from:github, as:theme
 zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:"fzf", frozen:1
@@ -145,10 +143,13 @@ zplug 'zsh-users/zsh-history-substring-search'
 zplug 'zsh-users/zsh-syntax-highlighting', defer:2
 zplug 'Tarrasch/zsh-autoenv'
 zplug 'ahmetb/kubectl-aliases', as:plugin, use:'.kubectl_aliases', defer:3
-zplug 'caarlos0/jvm'
 
 if ! zplug check; then
   zplug install
+fi
+
+if zplug check 'plugins/tmux'; then
+  ZSH_TMUX_AUTOSTART=true
 fi
 
 zplug load
@@ -424,7 +425,7 @@ setup_agents() {
   if which keychain > /dev/null 2>&1; then
     if (( $#ssh_keys > 0 )) || (( $#gpg_keys > 0 )); then
       eval $(keychain -q --nogui --eval --host fix \
-        --agents ssh,gpg $ssh_keys ${(f)gpg_keys})
+       --agents ssh,gpg $ssh_keys ${(f)gpg_keys})
     fi
   fi
 }
