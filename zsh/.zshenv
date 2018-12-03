@@ -9,10 +9,10 @@ if [[ -f ~/.zpath ]]; then
 fi
 
 # Editor
-if which vim &> /dev/null; then
+if which emacsclient &> /dev/null; then
+  export EDITOR="emacsclient -a emacs"
+elif which vim &> /dev/null; then
   export EDITOR="vim"
-elif which vi &> /dev/null; then
-  export EDITOR="vi"
 fi
 export VISUAL=$EDITOR
 
@@ -21,7 +21,7 @@ export PAGER="less -S"
 
 # Version control software.
 export CVS_RSH="ssh"
-export CVSEDITOR="vim"
+export CVSEDITOR="emacs"
 export RSYNC_RSH="ssh"
 
 # Avoid issues with `gpg` as installed via Homebrew.

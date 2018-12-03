@@ -149,7 +149,12 @@ if ! zplug check; then
 fi
 
 if zplug check 'plugins/tmux'; then
-  ZSH_TMUX_AUTOSTART=true
+case $OSTYPE in
+  darwin*)
+      # Autostart tmux on OSX Workstations
+      export ZSH_TMUX_AUTOSTART=true
+      ;;
+esac
 fi
 
 zplug load
@@ -298,7 +303,7 @@ fi
 #                                Key Bindings
 # =============================================================================
 
-bindkey -v
+bindkey -e
 
 # Common CTRL bindings.
 bindkey '^a' beginning-of-line
