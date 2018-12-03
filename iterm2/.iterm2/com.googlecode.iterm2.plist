@@ -1675,9 +1675,9 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>650 499 620 392 0 0 1920 1058 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>495 595 928 394 0 0 1920 1058 </string>
+	<string>254 524 796 486 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 0 1920 1080 0 0 1920 1058 </string>
+	<string>960 0 955 1058 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>85 529 665 452 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -4523,7 +4523,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-11-30T08:03:30Z</date>
+	<date>2018-12-01T10:37:22Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
@@ -4534,6 +4534,8 @@
 	<true/>
 	<key>SplitPaneDimmingAmount</key>
 	<real>0.36330378605769231</real>
+	<key>TabStyleWithAutomaticOption</key>
+	<integer>1</integer>
 	<key>UseLionStyleFullscreen</key>
 	<false/>
 	<key>WindowNumber</key>

@@ -147,3 +147,5 @@ protocol = https
 
 [diff "sopsdiffer"]
 	textconv = sops -d
+[github]
+	user = jjungnickel
