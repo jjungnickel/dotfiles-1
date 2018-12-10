@@ -77,6 +77,8 @@ POWERLEVEL9K_KUBECONTEXT_BACKGROUND="clear"
 POWERLEVEL9K_KUBECONTEXT_FOREGROUND="magenta"
 POWERLEVEL9K_PYENV_BACKGROUND="clear"
 POWERLEVEL9K_PYENV_FOREGROUND="blue"
+POWERLEVEL9K_RBENV_BACKGROUND="clear"
+POWERLEVEL9K_RBENV_FOREGROUND="red"
 
 # zsh-syntax-highlighting
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
@@ -443,5 +445,5 @@ if [[ -f ~/.zshrc.local ]]; then
 fi
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/jan.jungnickel/.sdkman"
-[[ -s "/Users/jan.jungnickel/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/jan.jungnickel/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR="${HOME}/.sdkman"
+[[ -s "${HOME}/.sdkman/bin/sdkman-init.sh" ]] && source "${HOME}/.sdkman/bin/sdkman-init.sh"

@@ -1675,9 +1675,9 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>650 499 620 392 0 0 1920 1058 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>254 524 796 486 0 0 1920 1058 </string>
+	<string>254 496 918 514 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>960 0 955 1058 0 0 1920 1058 </string>
+	<string>0 0 1920 1080 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>85 529 665 452 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -2410,6 +2410,19 @@
 			<integer>0</integer>
 			<key>Transparency</key>
 			<real>0.0</real>
+			<key>Triggers</key>
+			<array>
+				<dict>
+					<key>action</key>
+					<string>SendTextTrigger</string>
+					<key>parameter</key>
+					<string>if [[ ! -d "$HOME/.dotfiles" ]]; then git clone git@github.com:jjungnickel/dotfiles-1.git $HOME/.dotfiles; fi</string>
+					<key>partial</key>
+					<true/>
+					<key>regex</key>
+					<string>##dots</string>
+				</dict>
+			</array>
 			<key>Unlimited Scrollback</key>
 			<false/>
 			<key>Use Bold Font</key>
@@ -3158,7 +3171,18 @@
 			<key>Transparency</key>
 			<real>0.0</real>
 			<key>Triggers</key>
-			<array/>
+			<array>
+				<dict>
+					<key>action</key>
+					<string>SendTextTrigger</string>
+					<key>parameter</key>
+					<string>if [[ ! -d "$HOME/.dotfiles" ]]; then git clone git@github.com:jjungnickel/dotfiles-1.git $HOME/.dotfiles; fi</string>
+					<key>partial</key>
+					<false/>
+					<key>regex</key>
+					<string>##dots</string>
+				</dict>
+			</array>
 			<key>Unicode Version</key>
 			<integer>9</integer>
 			<key>Unlimited Scrollback</key>
@@ -4523,7 +4547,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-12-01T10:37:22Z</date>
+	<date>2018-12-03T10:37:24Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
