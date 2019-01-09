@@ -11,3 +11,8 @@
       doom-big-font (font-spec :family "Iosevka Nerd Font" :size 24 :weight 'light))
 
 (setq deft-directory "~/Documents/Notes")
+
+(setq +format-on-save-enabled-modes
+  '(not emacs-lisp-mode  ; elisp's mechanisms are good enough
+        sql-mode         ; sqlformat is currently broken
+        yaml-mode))      ; so is yaml-mode (for gitlab-ci and anchors)

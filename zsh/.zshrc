@@ -145,6 +145,7 @@ zplug 'zsh-users/zsh-history-substring-search'
 zplug 'zsh-users/zsh-syntax-highlighting', defer:2
 zplug 'Tarrasch/zsh-autoenv'
 zplug 'ahmetb/kubectl-aliases', as:plugin, use:'.kubectl_aliases', defer:3
+zplug 'rupa/z', use:'z.sh'
 
 if ! zplug check; then
   zplug install
@@ -344,6 +345,24 @@ if zplug check 'junegunn/fzf'; then
   export FZF_DEFAULT_OPTS='--height 30%
       --color fg:223,bg:235,hl:208,fg+:229,bg+:237,hl+:167,border:237
       --color info:246,prompt:214,pointer:214,marker:142,spinner:246,header:214'
+  # Z
+  if zplug check 'rupa/z'; then
+  unalias z 2> /dev/null
+  function z {
+    if [[ -z "$*" ]]; then
+      cd "$(_z -l 2>&1 | fzf +s --tac | sed 's/^[0-9,.]* *//')"
+    else
+      _last_z_args="$@"
+      _z "$@"
+    fi
+  }
+  function zz {
+    cd "$(_z -l 2>&1 | sed 's/^[0-9,.]* *//' | fzf -q "$_last_z_args")"
+  }
+  fi
+
+  alias j=z
+  alias jj=zz
 fi
 
 # =============================================================================

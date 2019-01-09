@@ -49,6 +49,8 @@ cask "skype"
 cask "slack"
 cask "spamsieve"
 cask "spotify"
+cask "steam"
+cask "teamviewer"
 #cask "suspicious-package"
 #cask "whatsapp"
 #cask "xquartz"
@@ -57,6 +59,7 @@ cask "logitech-gaming-software"
 
 brew "ag"
 brew "argo"
+brew "awscli"
 #brew "bro"
 #brew "bash-snippets"
 #brew "clang-format"
@@ -148,3 +151,4 @@ mas "Clockodo", id: 991892390
 mas "Reeder", id: 880001334
 mas "Agenda", id: 1287445660
 mas "OmniFocus", id: 1346203938
+mas "Space Gremlin", id: 414515628
