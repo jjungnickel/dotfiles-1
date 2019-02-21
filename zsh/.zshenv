@@ -16,8 +16,34 @@ elif which vim &> /dev/null; then
 fi
 export VISUAL=$EDITOR
 
-# Pager.
-export PAGER="less -S"
+# Pager
+LESSOPTS=(
+    --force                             # Force open non-regular files
+    --clear-screen                      # Print buffer from top of screen
+    --dumb                              # Do not complain about terminfo errors
+    --ignore-case                       # Like vim ignorecase + smartcase
+    --no-lessopen                       # Ignore LESSOPEN preprocessor
+    --long-prompt                       # Show position percentage
+    --RAW-CONTROL-CHARS                 # Only interpret SGR escape sequences
+    --chop-long-lines                   # Disable soft wrapping
+    --no-init                           # Prevent use of alternate screen
+    --tilde                             # Do not show nonextant lines as `~`
+    --shift 8                           # Horizontal movement in columns
+)
+export LESS="${LESSOPTS[@]}"
+export LESSSECURE='1'                   # More secure
+export LESSHISTFILE='-'                 # No ~/.lesshst
+export LESS_TERMCAP_md=$'\033[37m'      # Begin bold
+export LESS_TERMCAP_so=$'\033[36m'      # Begin standout-mode
+export LESS_TERMCAP_us=$'\033[4;35m'    # Begin underline
+export LESS_TERMCAP_mb=$'\033[5m'       # Begin blink
+export LESS_TERMCAP_se=$'\033[0m'       # End standout-mode
+export LESS_TERMCAP_ue=$'\033[0m'       # End underline
+export LESS_TERMCAP_me=$'\033[0m'       # End mode
+export PAGER='less'                     # Should be a single word to avoid quoting problems
+export SYSTEMD_LESS="${LESSOPTS[@]}"
+unset LESSOPTS
+export PAGER="less"
 
 # Version control software.
 export CVS_RSH="ssh"
