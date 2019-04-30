@@ -388,8 +388,8 @@ main() {
         osascript -e 'tell application "System Preferences" to quit'
         log "adjusting macOS defaults"
         setup_macos
-        log "installing custom keyboard layout"
-        setup_keyboard_layout
+        #log "installing custom keyboard layout"
+        #setup_keyboard_layout
         log "performing software update"
         sudo softwareupdate -i -a > /dev/null 2>&1
         log "installing XCode comand line developer tools"
@@ -410,7 +410,7 @@ main() {
   if [ "$command" = "postfix" ] || [ -z "$command" ]; then
     if ! fgrep -q stmp.gmail.com /etc/postfix/main.cf; then
       log "configuring postfix as Gmail relay"
-      setup_postfix
+      #setup_postfix
     else
       log "postfix already as Gmail relay configured"
     fi

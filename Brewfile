@@ -11,6 +11,7 @@ tap "int128/kubelogin"
 tap "argoproj/homebrew-tap"
 
 #cask "1password" # does currently not work when installed via cask
+cask "launchbar"
 #cask "adguard"
 #cask "cheatsheet"
 #cask "colorpicker-skalacolor"
@@ -140,7 +141,7 @@ brew "urlview"
 #brew "vim", args: ["with-client-server", "with-override-system-vi"]
 #brew "watch"
 brew "w3m"
-#brew "wget"
+brew "wget"
 #brew "youtube-dl"
 brew "yq"
 brew "zplug", args: ["HEAD"]
