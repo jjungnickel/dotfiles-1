@@ -3,7 +3,7 @@
 (setq user-email-address "jan@jungnickel.com"
       user-full-name "Jan Jungnickel")
 
-(setq doom-theme 'doom-one)
+(setq doom-theme 'doom-nord)
 
 (setq doom-font (font-spec :family "Iosevka Nerd Font" :weight 'light)
       doom-variable-pitch-font (font-spec :family "Fira Sans")

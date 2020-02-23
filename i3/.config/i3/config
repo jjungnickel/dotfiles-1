@@ -27,7 +27,7 @@ font xft:URWGothic-Book 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec termite
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -42,11 +42,11 @@ bindsym $mod+z exec --no-startup-id morc_menu
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
 ################################################################################################
 
-exec --no-startup-id volumeicon
-bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
-#exec --no-startup-id pulseaudio
-#exec --no-startup-id pa-applet
-#bindsym $mod+Ctrl+m exec pavucontrol
+#exec --no-startup-id volumeicon
+#bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
+exec --no-startup-id pulseaudio
+exec --no-startup-id pa-applet
+bindsym $mod+Ctrl+m exec pavucontrol
 
 ################################################################################################
 
@@ -56,8 +56,8 @@ bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 
 # Start Applications
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
-bindsym $mod+F2 exec palemoon
-bindsym $mod+F3 exec pcmanm
+bindsym $mod+F2 exec google-chrome-stable
+bindsym $mod+F3 exec pcmanfm
 # bindsym $mod+F3 exec ranger
 bindsym $mod+Shift+F3 exec gksu pcmanfm
 bindsym $mod+F5 exec terminal -e 'mocp'
@@ -278,12 +278,14 @@ exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
+exec --no-startup-id solaar
+#exec --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon
 # exec --no-startup-id blueman-applet
 # exec_always --no-startup-id sbxkb
-exec --no-startup-id start_conky_maia
+# exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
 exec --no-startup-id xautolock -time 10 -locker blurlock
-exec_always --no-startup-id ff-theme-util
+# exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 
 # Color palette used for the terminal ( ~/.Xresources file )
@@ -317,6 +319,28 @@ set_from_resource $term_color13    color13
 set_from_resource $term_color14    color14
 set_from_resource $term_color15    color15
 
+## Base16 Nord
+# Author: arcticicestudio
+#
+# You can use these variables anywhere in the i3 configuration file.
+
+set $base00 #2E3440
+set $base01 #3B4252
+set $base02 #434C5E
+set $base03 #4C566A
+set $base04 #D8DEE9
+set $base05 #E5E9F0
+set $base06 #ECEFF4
+set $base07 #8FBCBB
+set $base08 #88C0D0
+set $base09 #81A1C1
+set $base0A #5E81AC
+set $base0B #BF616A
+set $base0C #D08770
+set $base0D #EBCB8B
+set $base0E #A3BE8C
+set $base0F #B48EAD
+
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
 	i3bar_command i3bar
@@ -330,7 +354,7 @@ bar {
 	bindsym button4 nop
 	bindsym button5 nop
    # font xft:URWGothic-Book 11
-	strip_workspace_numbers yes
+	strip_workspace_numbers no
 
     status_command i3status
 
@@ -408,27 +432,6 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "default"
 }
 
-## Base16 Nord
-# Author: arcticicestudio
-#
-# You can use these variables anywhere in the i3 configuration file.
-
-set $base00 #2E3440
-set $base01 #3B4252
-set $base02 #434C5E
-set $base03 #4C566A
-set $base04 #D8DEE9
-set $base05 #E5E9F0
-set $base06 #ECEFF4
-set $base07 #8FBCBB
-set $base08 #88C0D0
-set $base09 #81A1C1
-set $base0A #5E81AC
-set $base0B #BF616A
-set $base0C #D08770
-set $base0D #EBCB8B
-set $base0E #A3BE8C
-set $base0F #B48EAD
 
 # Basic color configuration using the Base16 variables for windows and borders.
 # Property Name         Border  BG      Text    Indicator Child Border

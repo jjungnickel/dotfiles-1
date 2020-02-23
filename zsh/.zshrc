@@ -127,7 +127,14 @@ zplug 'plugins/tmux', from:oh-my-zsh, if:'which tmux'
 if which nodenv > /dev/null; then eval "$(nodenv init -)"; fi
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+if which phpenv > /dev/null; then eval "$(phpenv init -)"; fi
 
+export PHPENV_ROOT="${HOME}/.phpenv"
+
+if [ -d "${PHPENV_ROOT}" ]; then
+  export PATH="${PHPENV_ROOT}/bin:${PATH}"
+  eval "$(phpenv init -)"
+fi
 # zplug 'b4b4r07/zsh-vimode-visual', defer:3
 # Using branch 'next' introduces a color regression, so we fall back to master
 # ofr now. See https://github.com/bhilburn/powerlevel9k/pull/703 for details.
@@ -438,25 +445,6 @@ update() {
 # =============================================================================
 #                                   Startup
 # =============================================================================
-
-# Load SSH and GPG agents via keychain.
-setup_agents() {
-  if [[ $UID -eq 0 ]]; then
-    return
-  fi
-  local -a ssh_keys gpg_keys
-  ssh_keys=(~/.ssh/**/*pub(.N:r))
-  gpg_keys=$(gpg -K --with-colons 2>/dev/null \
-               | awk -F : '$1 == "sec" { print $5 }')
-  if which keychain > /dev/null 2>&1; then
-    if (( $#ssh_keys > 0 )) || (( $#gpg_keys > 0 )); then
-      eval $(keychain -q --nogui --eval --host fix \
-       --agents ssh,gpg $ssh_keys ${(f)gpg_keys})
-    fi
-  fi
-}
-setup_agents
-unfunction setup_agents
 
 # Source local customizations.
 if [[ -f ~/.zshrc.local ]]; then
